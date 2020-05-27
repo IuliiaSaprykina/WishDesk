@@ -3,13 +3,13 @@ class UsersController < ApplicationController
     def index
         @users = User.all 
 
-        render json: { users: @users}
+        render json: { users: @users}, include: [:wishes]
     end
 
     def show
         @user = User.find(params[:id])
 
-        render json: @user
+        render json: { user: @user }, include: [:wishes]
     end
 
     def create

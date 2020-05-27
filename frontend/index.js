@@ -70,29 +70,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const formData = new FormData(logInForm);
         const newUserUserName = formData.get('username');
         const newUserPassword = formData.get('password');
-        const newUser = {
+        const loginUser = {
             username: newUserUserName,
             password: newUserPassword
         }
+        // localStorage.setItem('username', newUserUserName);
 
         fetch(loginUrl, {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newUser)
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(loginUser)
         })
             .then(response => response.json())
-            .then(response => {
-                // if (!response.ok){
-                //     console.log($loginError)
-                //     $loginError.textContent = "Please write a correct username or password"
-                // } else {
-                    const {token} = response
-                    localStorage.setItem("token", token)
-                    setIsLoggedIn()
-                // }
-                })
+            .then(result => {
+                console.log('result: ', result.token)
+                console.log('username: ', newUserUserName)
+                console.log('userid', result.user_id);
+                localStorage.setItem('token', result.token)
+                localStorage.setItem('username', newUserUserName)
+                localStorage.setItem('user_id', result.user_id)
+                setIsLoggedIn()
+        })
         logInForm.reset();
     })
 

@@ -7,7 +7,7 @@ class WishesController < ApplicationController
     end
 
     def show
-        @wishe = Wish.find([arams[:id]])
+        @wishe = Wish.find([params[:id]])
 
         render json: { wish: @wishe}
     end
