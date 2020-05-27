@@ -7,8 +7,10 @@ const yourWishDesk = document.querySelector('.your-wish-desk');
 const homeButton = document.getElementById('home-page');
 const username = localStorage.getItem('username');
 const userId = localStorage.getItem('user_id');
+const showMyDesk = document.getElementById('show-wish-desk');
 const userWishesUrl = "http://localhost:3000/user_wishes/";
 const wishesUrl = "http://localhost:3000/wishes/";
+const usersUrl = "http://localhost:3000/users/";
 
 accessPage();
 
@@ -44,7 +46,8 @@ function parseWishes(){
         .then(wishes => displayWishes(wishes["wishes"]))
     }
 
-homeButton.addEventListener('click', () => window.location.href = "/")
+homeButton.addEventListener('click', () => window.location.href = "/");
+showMyDesk.addEventListener('click', yourWishDeskDisplay)
     
     
 function displayWishes(wishArr){
@@ -68,220 +71,258 @@ function displayWishes(wishArr){
 
             typeButtonSection.append(wishTypeButton);
 
-        })
+})
 
-    function displayWishesImage(event) {
-        event.preventDefault();
-        if (event.target.textContent == "My Ideal Home"){
+function displayWishesImage(event) {
+    event.preventDefault();
+    if (event.target.textContent == "My Ideal Home"){
             
-            homeArr.forEach(home => {
-                const p = document.createElement('p');
-                const img = document.createElement('img');
-                const addButton = document.createElement('button');
+        homeArr.forEach(home => {
+            const p = document.createElement('p');
+            const img = document.createElement('img');
+            const addButton = document.createElement('button');
 
-                p.textContent = home.description;
+            p.textContent = home.description;
+            img.src = home.image_url;
+            img.width = "400";
+            img.height = "300";
+            addButton.textContent = "Add Wish";
+            
+            addButton.addEventListener('click', () =>{
+                event.preventDefault();
+                const img = document.createElement('img');
+
                 img.src = home.image_url;
                 img.width = "400";
                 img.height = "300";
-                addButton.textContent = "Add Wish";
-            
-                addButton.addEventListener('click', () =>{
-                    event.preventDefault();
-                    const img = document.createElement('img');
 
-                    img.src = home.image_url;
-                    img.width = "400";
-                    img.height = "300";
-
-                    const newUserWish = {
-                        user_id: userId,
-                        wish_id: home.id
-                    }
+                const newUserWish = {
+                    user_id: userId,
+                    wish_id: home.id
+                }
                     
-                    fetch(userWishesUrl, {
-                        method: "POST",
-                        headers: {
-                            'content-type':'application/json',
-                            Authorization: `bearer ${localStorage.getItem("token")}`
-                        },
-                        body: JSON.stringify(newUserWish)
-                    })
-                        .then(parseJSON)
-                        .then(console.log)
-
-                    yourWishDesk.append(img)
+                fetch(userWishesUrl, {
+                    method: "POST",
+                    headers: {
+                        'content-type':'application/json',
+                        Authorization: `bearer ${localStorage.getItem("token")}`
+                    },
+                    body: JSON.stringify(newUserWish)
                 })
+                    .then(parseJSON)
+                    .then(console.log)
+        })
 
-                wishSection.append(p, img, addButton)
-            })
-        } else if (event.target.textContent == "My Ideal Family"){
-            wishSection.style.display = 'none'
-            familyArr.forEach(el => {
-                wishSection.style.display = 'block'
-                const p = document.createElement('p');
+    wishSection.append(p, img, addButton)
+})
+    } else if (event.target.textContent == "My Ideal Family"){
+        wishSection.style.display = 'none'
+        familyArr.forEach(el => {
+            wishSection.style.display = 'block'
+            const p = document.createElement('p');
+            const img = document.createElement('img');
+            const addButton = document.createElement('button');
+
+            p.textContent = el.description;
+            img.src =el.image_url;
+            img.width = "400";
+            img.height = "300";
+            addButton.textContent = "Add Wish";
+
+            addButton.addEventListener('click', () =>{
+                event.preventDefault();
                 const img = document.createElement('img');
-                const addButton = document.createElement('button');
 
-                p.textContent = el.description;
-                img.src =el.image_url;
+                img.src = el.image_url;
                 img.width = "400";
                 img.height = "300";
-                addButton.textContent = "Add Wish";
 
-                addButton.addEventListener('click', () =>{
-                    event.preventDefault();
-                    const p = document.createElement('p');
-                    const img = document.createElement('img');
-
-                    img.src = el.image_url;
-                    img.width = "400";
-                    img.height = "300";
-
-                    const newUserWish = {
-                        user_id: userId,
-                        wish_id: el.id
-                    }
+                const newUserWish = {
+                    user_id: userId,
+                    wish_id: el.id
+                }
                     
-                    fetch(userWishesUrl, {
-                        method: "POST",
-                        headers: {
-                            'content-type':'application/json',
-                            Authorization: `bearer ${localStorage.getItem("token")}`
-                        },
-                        body: JSON.stringify(newUserWish)
-                    })
-                        .then(parseJSON)
-                        .then(console.log)
-
-                    yourWishDesk.append(img)
+                fetch(userWishesUrl, {
+                    method: "POST",
+                    headers: {
+                        'content-type':'application/json',
+                        Authorization: `bearer ${localStorage.getItem("token")}`
+                    },
+                    body: JSON.stringify(newUserWish)
                 })
-
-                wishSection.append(p, img, addButton)
+                    .then(parseJSON)
+                    .then(console.log)
             })
-        } else if (event.target.textContent == "Travel") {
-            travelArr.forEach(country => {
-                const p = document.createElement('p');
-                const img = document.createElement('img');
-                const addButton = document.createElement('button');
 
-                p.textContent = country.description;
-                img.src =country.image_url;
+        wishSection.append(p, img, addButton)
+    })
+    } else if (event.target.textContent == "Travel") {
+        travelArr.forEach(country => {
+            const p = document.createElement('p');
+            const img = document.createElement('img');
+            const addButton = document.createElement('button');
+
+            p.textContent = country.description;
+            img.src =country.image_url;
+            img.width = "400";
+            img.height = "300";
+            addButton.textContent = "Add Wish";
+
+            addButton.addEventListener('click', () =>{
+                event.preventDefault();
+                const img = document.createElement('img');
+
+                img.src = country.image_url;
                 img.width = "400";
                 img.height = "300";
-                addButton.textContent = "Add Wish";
 
-                addButton.addEventListener('click', () =>{
-                    event.preventDefault();
-                    const img = document.createElement('img');
-
-                    img.src = country.image_url;
-                    img.width = "400";
-                    img.height = "300";
-
-                    const newUserWish = {
-                        user_id: userId,
-                        wish_id: country.id
-                    }
+                const newUserWish = {
+                    user_id: userId,
+                    wish_id: country.id
+                }
                     
-                    fetch(userWishesUrl, {
-                        method: "POST",
-                        headers: {
-                            'content-type':'application/json',
-                            Authorization: `bearer ${localStorage.getItem("token")}`
-                        },
-                        body: JSON.stringify(newUserWish)
-                    })
-                        .then(parseJSON)
-                        .then(console.log)
-
-                    yourWishDesk.append(img)
+                fetch(userWishesUrl, {
+                    method: "POST",
+                    headers: {
+                        'content-type':'application/json',
+                        Authorization: `bearer ${localStorage.getItem("token")}`
+                    },
+                    body: JSON.stringify(newUserWish)
                 })
-
-                wishSection.append(p, img, addButton)
+                    .then(parseJSON)
+                    .then(console.log)
             })
-        } else if (event.target.textContent == "Health"){
-            healthArr.forEach(el => {
-                const p = document.createElement('p');
-                const img = document.createElement('img');
-                const addButton = document.createElement('button');
 
-                p.textContent = el.description;
-                img.src =el.image_url;
+            wishSection.append(p, img, addButton)
+        })
+    } else if (event.target.textContent == "Health"){
+        healthArr.forEach(el => {
+            const p = document.createElement('p');
+            const img = document.createElement('img');
+            const addButton = document.createElement('button');
+
+            p.textContent = el.description;
+            img.src =el.image_url;
+            img.width = "400";
+            img.height = "300";
+            addButton.textContent = "Add Wish";
+
+            addButton.addEventListener('click', () =>{
+                event.preventDefault();
+                const img = document.createElement('img');
+
+                img.src = el.image_url;
                 img.width = "400";
                 img.height = "300";
-                addButton.textContent = "Add Wish";
 
-                addButton.addEventListener('click', () =>{
-                    event.preventDefault();
-                    const img = document.createElement('img');
-
-                    img.src = el.image_url;
-                    img.width = "400";
-                    img.height = "300";
-
-                    const newUserWish = {
-                        user_id: userId,
-                        wish_id: el.id
-                    }
+                const newUserWish = {
+                    user_id: userId,
+                    wish_id: el.id
+                }
                     
-                    fetch(userWishesUrl, {
-                        method: "POST",
-                        headers: {
-                            'content-type':'application/json',
-                            Authorization: `bearer ${localStorage.getItem("token")}`
-                        },
-                        body: JSON.stringify(newUserWish)
-                    })
-                        .then(parseJSON)
-                        .then(console.log)
-
-                    yourWishDesk.append(img)
+                fetch(userWishesUrl, {
+                    method: "POST",
+                    headers: {
+                        'content-type':'application/json',
+                        Authorization: `bearer ${localStorage.getItem("token")}`
+                    },
+                    body: JSON.stringify(newUserWish)
                 })
-
-                wishSection.append(p, img, addButton)
+                    .then(parseJSON)
+                    .then(console.log)
             })
-        } else if (event.target.textContent == "Gadgets"){
-            gadgetsArr.forEach(el => {
-                const p = document.createElement('p');
+
+            wishSection.append(p, img, addButton)
+        })
+    } else if (event.target.textContent == "Gadgets"){
+        gadgetsArr.forEach(el => {
+            const p = document.createElement('p');
+            const img = document.createElement('img');
+             const addButton = document.createElement('button');
+
+            p.textContent = el.description;
+            img.src =el.image_url;
+            img.width = "400";
+            img.height = "400";
+            addButton.textContent = "Add Wish";
+
+            addButton.addEventListener('click', () =>{
+                event.preventDefault();
                 const img = document.createElement('img');
-                const addButton = document.createElement('button');
 
-                p.textContent = el.description;
-                img.src =el.image_url;
+                img.src = el.image_url;
                 img.width = "400";
-                img.height = "400";
-                addButton.textContent = "Add Wish";
+                img.height = "300";
 
-                addButton.addEventListener('click', () =>{
-                    event.preventDefault();
-                    const img = document.createElement('img');
-
-                    img.src = el.image_url;
-                    img.width = "400";
-                    img.height = "300";
-
-                    const newUserWish = {
-                        user_id: userId,
-                        wish_id: el.id
-                    }
+                const newUserWish = {
+                    user_id: userId,
+                    wish_id: el.id
+                }
                     
-                    fetch(userWishesUrl, {
-                        method: "POST",
-                        headers: {
-                            'content-type':'application/json',
-                            Authorization: `bearer ${localStorage.getItem("token")}`
-                        },
-                        body: JSON.stringify(newUserWish)
-                    })
-                        .then(parseJSON)
-                        .then(console.log)
-
-                    yourWishDesk.append(img)
+                fetch(userWishesUrl, {
+                    method: "POST",
+                    headers: {
+                        'content-type':'application/json',
+                        Authorization: `bearer ${localStorage.getItem("token")}`
+                    },
+                    body: JSON.stringify(newUserWish)
                 })
+                    .then(parseJSON)
+                    .then(console.log)
+            })
                 
-                wishSection.append(p, img, addButton)
-            })
+            wishSection.append(p, img, addButton)
+         })
+    }
+}
+}
+
+function yourWishDeskDisplay(){
+    fetch(userWishesUrl , {
+        headers: {
+            'content-type':'application/json',
+            Authorization: `bearer ${localStorage.getItem("token")}`
+        },
+    })
+        .then(parseJSON)
+        // .then(users => console.log(users["user_wishes"]))
+        .then(users_wishes => users_wishes["user_wishes"].forEach(appendWishesToContainer))
+
+    function appendWishesToContainer(user_wish) {
+        if (user_wish.user_id == userId){
+            const wishId = user_wish.wish_id
+            // console.log(user_wish.wish_url)
+            fetch(wishesUrl)
+                .then(parseJSON)
+                .then(wishes => wishes["wishes"].forEach(addYourWishToContainer))
+            
+            function addYourWishToContainer(wish){
+                if (wish.id == user_wish.wish_id){
+                    console.log(wish)
+                    const img = document.createElement('img');
+                    const deleteButton = document.createElement('button');
+        
+                    img.src = wish.image_url;
+                    img.width = "400";
+                    img.height = "300";
+                    deleteButton.textContent = "Remove this Wish";
+    
+                    deleteButton.addEventListener('click', () => {
+                        img.remove();
+    
+                        fetch(userWishesUrl + user_wish.id, {
+                            method: "DELETE", 
+                            headers: {
+                                'content-type':'application/json',
+                                Authorization: `bearer ${localStorage.getItem("token")}`
+                            },
+                        })
+    
+                    })
+                    yourWishDesk.append(img, deleteButton);
+
+                }
+            }
         }
     }
-
 }

@@ -24,4 +24,17 @@ class UserWishesController < ApplicationController
 
         render json: { user_wish: @user_wish }
     end
+
+    def show
+        @user_wish = UserWish.find(params[:id])
+
+        render json: { user_wish: @user_wish}
+    end
+
+    def destroy
+        @user_wish = UserWish.find(params[:id])
+        @user_wish.destroy
+
+        render json: { message: "Your wish removed" }
+    end
 end
