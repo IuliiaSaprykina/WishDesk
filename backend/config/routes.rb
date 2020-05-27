@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :user_wishes, only: [:index]
-  resources :wishes
+  resources :wishes, only: [:index, :show]
   resources :users, only: [:create, :index, :update];
   post "login", to: "authentication#login"
 

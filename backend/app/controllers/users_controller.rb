@@ -13,13 +13,17 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(
-            name: params[:name],
-            username: params[:username],
-            password: params[:password],
-        )
-
-        render json: {user: @user}
+        @user = User.new(
+             name: params[:name],
+             username: params[:username],
+                password: params[:password],
+         )
+        
+        if @user.save
+            render json: {user: @user}
+        else
+            render json: { error: "Some error" }, status: :bad_request
+        end
     end
 
     def update
@@ -32,5 +36,7 @@ class UsersController < ApplicationController
 
         render json: {user: @user}
     end
+
+
 
 end

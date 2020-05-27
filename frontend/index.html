@@ -8,11 +8,38 @@
 </head>
 <body>
     <header>Wish Desk</header>
-  
-        <button id="add-new-user">Create a new user</button>
-    
+    <br>    
+        <button class="add-new-user">Add a New User</button>
+        <div>
+            <form id="new-user-form">
+                <header>Create a New User</header>
+                <input name="name"/>
+                <label>Name</label>
+                <input name="username"/>
+                <label>Username</label>
+                <input type="password" name="password"/>
+                <label>Password</label>
+                <input type="submit" value="Create a new user"/>
+            </form>
+            <p class="user-error"></p>
+        </div>
+        <p id="new-user-added"></p>
         <button id="log-in">LogIn</button>
-    
+        <div id="log-in-menu">
+            <p class="is-logged-in"></p>
+            <form id="log-in-form">
+                <header>Log In to Your Account</header>
+                <input name="username"/>
+                <label>Username</label>
+                <input type="password" name="password"/>
+                <label>Password</label>
+                <input type="submit" value="Login"/>
+             </form>
+             <br>
+             <button id="logout">Log Out</button>
+            <a href="/showPage.html">Go to your Wish Desk Page</a>
+            <p class="login-error"></p>
+        </div>
 </body>
 <script src="index.js"></script>
 </html>
