@@ -85,13 +85,18 @@ document.addEventListener("DOMContentLoaded", () => {
         })
             .then(response => response.json())
             .then(result => {
-                console.log('result: ', result.token)
-                console.log('username: ', newUserUserName)
-                console.log('userid', result.user_id);
-                localStorage.setItem('token', result.token)
-                localStorage.setItem('username', newUserUserName)
-                localStorage.setItem('user_id', result.user_id)
-                setIsLoggedIn()
+                // if (!result.ok){
+                //     $loginError.textContent = "Please type corret username and password"
+                // } else {
+                    // $loginError.remove();
+                    console.log('result: ', result.token)
+                    console.log('username: ', newUserUserName)
+                    console.log('userid', result.user_id);
+                    localStorage.setItem('token', result.token)
+                    localStorage.setItem('username', newUserUserName)
+                    localStorage.setItem('user_id', result.user_id)
+                    setIsLoggedIn()
+                // }
         })
         logInForm.reset();
     })
