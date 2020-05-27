@@ -9,16 +9,25 @@
 <body>
     <h1>Create Your Wish Desk</h1>
     <button id="home-page">Home Page</button>
-    <button id="show-wish-desk">Show My Wish Desk</button>
+    <button id="manage-wish-desk">Manage My Wish Desk</button>
+    <button id="save-wish-desk">Save My Wish Desk</button>
     <p id="top-secret-stuff"></p>
     
     <div class="wishes-container">
         <h2>Choose your wish</h2>
         <h2 class="type-button"></h2>
-        <p class="wish-section"></p>
+        <p class="wish-section">
+            <p id="home-section"></p>
+            <p id="family-section"></p>
+            <p id="travel-section"></p>
+            <p id="health-section"></p>
+            <p id="gadget-section"></p>
+
+        </p>
     </div>
     <div class="your-wish-desk">
-        
+        <canvas id="canvas" width="5" height="5"></canvas>
+        <!-- <img class="grayscale" src="" alt="Description of my picture" /> -->
     </div>
 </body>
 <script src="showPage.js"></script>

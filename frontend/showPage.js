@@ -7,10 +7,18 @@ const yourWishDesk = document.querySelector('.your-wish-desk');
 const homeButton = document.getElementById('home-page');
 const username = localStorage.getItem('username');
 const userId = localStorage.getItem('user_id');
-const showMyDesk = document.getElementById('show-wish-desk');
+const manageWishDesk = document.getElementById('manage-wish-desk');
+const saveButton = document.getElementById('save-wish-desk');
+const canvas = document.getElementById('canvas');
+const homeSection = document.getElementById('home-section');
+const familySection = document.getElementById('family-section');
+const travelSection = document.getElementById('travel-section');
+const healthSection = document.getElementById('health-section');
+const gadgetSection = document.getElementById('gadget-section');
 const userWishesUrl = "http://localhost:3000/user_wishes/";
 const wishesUrl = "http://localhost:3000/wishes/";
 const usersUrl = "http://localhost:3000/users/";
+
 
 accessPage();
 
@@ -47,7 +55,10 @@ function parseWishes(){
     }
 
 homeButton.addEventListener('click', () => window.location.href = "/");
-showMyDesk.addEventListener('click', yourWishDeskDisplay)
+manageWishDesk.addEventListener('click', yourWishDeskDisplay);
+saveButton.addEventListener('click', () => {
+    window.open("wishDesk.html")
+})
     
     
 function displayWishes(wishArr){
@@ -75,12 +86,18 @@ function displayWishes(wishArr){
 
 function displayWishesImage(event) {
     event.preventDefault();
+    
     if (event.target.textContent == "My Ideal Home"){
-            
+        // familySection.remove();
+        // travelSection.remove();
+        // healthSection.remove();
+        // gadgetSection.remove();
         homeArr.forEach(home => {
+            console.log(home)
             const p = document.createElement('p');
             const img = document.createElement('img');
             const addButton = document.createElement('button');
+           
 
             p.textContent = home.description;
             img.src = home.image_url;
@@ -90,7 +107,7 @@ function displayWishesImage(event) {
             
             addButton.addEventListener('click', () =>{
                 event.preventDefault();
-                const img = document.createElement('img');
+                // const img = document.createElement('img');
 
                 img.src = home.image_url;
                 img.width = "400";
@@ -113,10 +130,10 @@ function displayWishesImage(event) {
                     .then(console.log)
         })
 
-    wishSection.append(p, img, addButton)
+    homeSection.append(p, img, addButton)
 })
     } else if (event.target.textContent == "My Ideal Family"){
-        wishSection.style.display = 'none'
+        homeSection.remove();
         familyArr.forEach(el => {
             wishSection.style.display = 'block'
             const p = document.createElement('p');
@@ -154,9 +171,10 @@ function displayWishesImage(event) {
                     .then(console.log)
             })
 
-        wishSection.append(p, img, addButton)
+       familySection.append(p, img, addButton)
     })
     } else if (event.target.textContent == "Travel") {
+        familySection.remove();
         travelArr.forEach(country => {
             const p = document.createElement('p');
             const img = document.createElement('img');
@@ -164,7 +182,7 @@ function displayWishesImage(event) {
 
             p.textContent = country.description;
             img.src =country.image_url;
-            img.width = "400";
+            img.width = "380";
             img.height = "300";
             addButton.textContent = "Add Wish";
 
@@ -193,9 +211,10 @@ function displayWishesImage(event) {
                     .then(console.log)
             })
 
-            wishSection.append(p, img, addButton)
+            travelSection.append(p, img, addButton)
         })
     } else if (event.target.textContent == "Health"){
+        travelSection.remove();
         healthArr.forEach(el => {
             const p = document.createElement('p');
             const img = document.createElement('img');
@@ -232,9 +251,10 @@ function displayWishesImage(event) {
                     .then(console.log)
             })
 
-            wishSection.append(p, img, addButton)
+            healthSection.append(p, img, addButton)
         })
     } else if (event.target.textContent == "Gadgets"){
+        healthSection.remove();
         gadgetsArr.forEach(el => {
             const p = document.createElement('p');
             const img = document.createElement('img');
@@ -271,13 +291,15 @@ function displayWishesImage(event) {
                     .then(console.log)
             })
                 
-            wishSection.append(p, img, addButton)
+            gadgetSection.append(p, img, addButton)
          })
     }
 }
 }
 
 function yourWishDeskDisplay(){
+    // healthSection.remove();
+    gadgetSection.remove();
     fetch(userWishesUrl , {
         headers: {
             'content-type':'application/json',
@@ -285,20 +307,17 @@ function yourWishDeskDisplay(){
         },
     })
         .then(parseJSON)
-        // .then(users => console.log(users["user_wishes"]))
         .then(users_wishes => users_wishes["user_wishes"].forEach(appendWishesToContainer))
 
     function appendWishesToContainer(user_wish) {
         if (user_wish.user_id == userId){
-            const wishId = user_wish.wish_id
-            // console.log(user_wish.wish_url)
             fetch(wishesUrl)
                 .then(parseJSON)
                 .then(wishes => wishes["wishes"].forEach(addYourWishToContainer))
             
             function addYourWishToContainer(wish){
                 if (wish.id == user_wish.wish_id){
-                    console.log(wish)
+                    
                     const img = document.createElement('img');
                     const deleteButton = document.createElement('button');
         
@@ -309,6 +328,7 @@ function yourWishDeskDisplay(){
     
                     deleteButton.addEventListener('click', () => {
                         img.remove();
+                        deleteButton.remove();
     
                         fetch(userWishesUrl + user_wish.id, {
                             method: "DELETE", 
@@ -319,10 +339,20 @@ function yourWishDeskDisplay(){
                         })
     
                     })
+                    
                     yourWishDesk.append(img, deleteButton);
-
+                    return yourWishDesk
+                    
                 }
             }
         }
     }
+}
+
+function wishDeskDisplayForSave(){
+    yourWishDeskDisplay();
+    console.log(yourWishDesk)
+    var fullQuality = canvas.toDataURL('image/jpeg', 1.0);
+    console.log(fullQuality);
+    
 }
