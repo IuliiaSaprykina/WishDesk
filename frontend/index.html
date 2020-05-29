@@ -18,10 +18,14 @@
 </head>
 <body>
     <div class="container">
+        <!-- <iframe src="https://giphy.com/embed/xTk9ZYl3z6MYq6XmXm" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+        <!-- <iframe src="https://giphy.com/embed/Wa0TGmtDvwW3e" width="480" height="290" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+        <iframe src="https://giphy.com/embed/3o6nUXWyYg2Wfc9DKE" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
     <h1>Wish Desk</h1>
+    
     <br>    
+    <div id="menu-container">
         <button class="add-new-user">Add a New User</button>
-        <div>
             <form id="new-user-form">
                 <header>Create a New User</header>
                 <input name="name"/>
@@ -30,6 +34,7 @@
                 <label>Username</label>
                 <input type="password" name="password"/>
                 <label>Password</label>
+                <br>
                 <input type="submit" value="Create a new user"/>
             </form>
             <p class="user-error"></p>
@@ -45,13 +50,15 @@
                 <label>Username</label>
                 <input type="password" name="password"/>
                 <label>Password</label>
+                <br>
                 <input type="submit" value="Login"/>
              </form>
              <p class="login-error"></p>
              
              <br>
              <button id="logout">Log Out</button>
-            <a href="/showPage.html">Go to your Wish Desk Page</a>
+             <button id="go-to-your-page">Go To Your Page</button>
+            <!-- <a href="/showPage.html">Go to your Wish Desk Page</a> -->
             <p class="login-error"></p>
         </div>
     </div>

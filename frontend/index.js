@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const logInMenu = document.getElementById('log-in-menu');
     const logOutButton = document.getElementById('logout');
     const isLoggedIn = document.querySelector('.is-logged-in');
+    const goToYourPage = document.querySelector('#go-to-your-page')
     const loginUrl = "http://localhost:3000/login/";
     const userUrl = "http://localhost:3000/users/";
 
@@ -28,9 +29,37 @@ document.addEventListener("DOMContentLoaded", () => {
             : "Please type your username and password to log in"
     }
 
-    addUserButton.addEventListener('click', () => newUserForm.style.display = 'block');
-    logInButton.addEventListener('click', () => logInMenu.style.display = 'block');
+    addUserButton.addEventListener('click', displayUserMenu);
+    logInButton.addEventListener('click',displayLoginMenu);
     logOutButton.addEventListener('click', logOut);
+    goToYourPage.addEventListener('click', () => {
+        window.location.replace("showPage.html")
+    })
+
+    let clickCount = 0 
+
+    function displayUserMenu(){
+        newUserForm.style.display = 'block';
+        clickCount ++; 
+        if (clickCount == 2) {
+            event.target.removeEventListener("click", displayUserMenu);
+            document.addEventListener('click', function(){
+             newUserForm.style.display = 'none';
+            });
+        } 
+    }
+    
+    let i = 0
+    function displayLoginMenu(){
+        logInMenu.style.display = 'block';
+        i ++; 
+        if (i == 2) {
+            event.target.removeEventListener("click", displayUserMenu);
+            document.addEventListener('click', function(){
+             logInMenu.style.display = 'none';
+            });
+        }
+    }
     
     newUserForm.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -85,10 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
             .then(response => response.json())
             .then(result => {
-                // if (!result.ok){
-                //     $loginError.textContent = "Please type corret username and password"
-                // } else {
-                    // $loginError.remove();
                     console.log('result: ', result.token)
                     console.log('username: ', newUserUserName)
                     console.log('userid', result.user_id);
@@ -96,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     localStorage.setItem('username', newUserUserName)
                     localStorage.setItem('user_id', result.user_id)
                     setIsLoggedIn()
-                // }
         })
         logInForm.reset();
     })
@@ -107,4 +131,6 @@ function logOut(){
 }
 
 })
+
+
 

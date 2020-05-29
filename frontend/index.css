@@ -1,11 +1,102 @@
+html {
+    background-color: #e8beb0;
+}
+label{
+    font-size: .8rem;
+
+    color: #5f2727;
+}
+
+
+.input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #005eed !important;
+   }
+
+/* label underline focus color */
+   .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #005eed !important;
+    box-shadow: 0 1px 0 0 #005eed !important;
+}
 .container{
-    position: absolute;
-    left: 50%;
+    background-color: #e8beb0;
+    color: #444;
+    cursor: pointer;
     padding: 18px;
     width: 920px;
+    text-align: center;
+    border: line;
+    outline: none;
+    transition: 0.4s;
+    font-size: larger;
     
 }
 
-#new-user-form{
+/* #menu-container{
+    margin-top: 50px;
+} */
 
+@import url('https://fonts.googleapis.com/css?family=Kanit:900');
+
+$LIGHTING_FLOOR: 1;
+$LIGHTING_CEIL: 2;
+$LIGHTING_FLAT: 3;
+
+@mixin text3d(
+  $primary, 
+  $depth: 5, 
+  $shadowsteps: 5, 
+  $shadowincrementer: 3px, 
+  $shadowopacity: .5, 
+  $primaryshadowcolour: #000, 
+  $lighting: $LIGHTING_CEIL) {
+  $predefinedShadows: (
+    0 0 5px rgba($primaryshadowcolour, .05), 
+    0 -1px 3px rgba($primaryshadowcolour, .2), 
+    0 3px 5px rgba($primaryshadowcolour, .2));
+  $value: ();
+  @for $i from 1 through $depth {
+    $num: $i + px;
+    $hueadjust: $i;
+    @if($lighting == $LIGHTING_FLOOR) {
+      $hueadjust: ($i * 2 - $depth - 5) * 1%;
+    } @elseif($lighting == $LIGHTING_CEIL) {
+      $hueadjust: -($i*2 + $depth - 10) * 1%;
+    } @elseif($lighting == $LIGHTING_FLAT) {
+      $hueadjust: -$depth * 1%;
+    }
+    $colour: adjust-color($primary, $lightness: $hueadjust);
+    $theShadow: 0 $num 0 $colour;
+    $value: append($value, $theShadow, comma);
+  }
+  
+  @for $i from 1 through $shadowsteps {
+    @if($i >= length($predefinedShadows)) {
+      $dist: $i * $shadowincrementer;
+      $value: append($value, 0 $dist $dist rgba($primaryshadowcolour, $shadowopacity));
+    } @else {
+      $value: append($value, nth($predefinedShadows, $i));
+    }
+  }
+  
+  text-shadow: $value;
+}
+
+$primarycolour: rgb(230,190,190);
+
+body {
+  background: $primarycolour;
+}
+
+h1 {
+  color: #753f24;
+  font-family: "Kanit";
+  font-size: 100px;
+  line-height:1em;
+  margin-top: 80px;
+  /* position: absolute; */
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-shadow: 2px 2px 4px #000;
 }

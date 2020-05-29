@@ -4,6 +4,7 @@ const wishesContainer = document.querySelector('.wishes-container');
 const wishSection = document.querySelector('.wish-section');
 const typeButtonSection = document.querySelector('.type-button');
 const yourWishDesk = document.querySelector('.your-wish-desk');
+const wishDesk = document.getElementById('wish-desk')
 const homeButton = document.getElementById('home-page');
 const username = localStorage.getItem('username');
 const userId = localStorage.getItem('user_id');
@@ -100,10 +101,12 @@ function displayWishesImage(event) {
            
 
             p.textContent = home.description;
+            p.id = "header-image";
             img.src = home.image_url;
             img.width = "400";
             img.height = "300";
             addButton.textContent = "Add Wish";
+            addButton.id = "add"
             
             addButton.addEventListener('click', () =>{
                 event.preventDefault();
@@ -141,6 +144,7 @@ function displayWishesImage(event) {
             const addButton = document.createElement('button');
 
             p.textContent = el.description;
+            p.id = "header-image";
             img.src =el.image_url;
             img.width = "400";
             img.height = "300";
@@ -181,6 +185,7 @@ function displayWishesImage(event) {
             const addButton = document.createElement('button');
 
             p.textContent = country.description;
+            p.id = "header-image";
             img.src =country.image_url;
             img.width = "380";
             img.height = "300";
@@ -221,6 +226,7 @@ function displayWishesImage(event) {
             const addButton = document.createElement('button');
 
             p.textContent = el.description;
+            p.id = "header-image";
             img.src =el.image_url;
             img.width = "400";
             img.height = "300";
@@ -261,6 +267,7 @@ function displayWishesImage(event) {
              const addButton = document.createElement('button');
 
             p.textContent = el.description;
+            p.id = "header-image";
             img.src =el.image_url;
             img.width = "400";
             img.height = "400";
@@ -340,8 +347,8 @@ function yourWishDeskDisplay(){
     
                     })
                     
-                    yourWishDesk.append(img, deleteButton);
-                    return yourWishDesk
+                    wishDesk.append(img, deleteButton);
+                   
                     
                 }
             }
