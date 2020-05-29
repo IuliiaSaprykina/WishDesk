@@ -64,10 +64,24 @@ h2{
 
 #add{
     margin: 30px;
+    margin-right: 50px;
 }
 
 #header-image {
+
     padding-right: 10%;
-    margin-top: 50px;
+    padding-top: 30px;
+    align-items: center;
+    font-size: 30px;
     color: #76b5c7;
 }
+
+
+.item-content {   
+    margin-left: 40%;
+} 
+
+/* .item-content :nth-child(2){
+    margin: auto
+} */
+

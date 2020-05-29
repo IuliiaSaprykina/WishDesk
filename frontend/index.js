@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     welcome();
 
     function welcome(){
+        $userError.style.display = 'none'
         newUserForm.style.display = 'none';
         logInMenu.style.display = 'none';
     }
