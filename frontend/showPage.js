@@ -78,6 +78,7 @@ function displayWishes(wishArr){
             const wishTypeButton = document.createElement('button');
 
             wishTypeButton.textContent = el;
+            wishTypeButton.id = el.split(" ").join("-")
 
             wishTypeButton.addEventListener('click', displayWishesImage)
 

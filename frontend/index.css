@@ -1,39 +1,85 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #e8beb0;
+    overflow-x: hidden;
+}
+
 html {
-    background-color: #e8beb0;
+    background-color: #3c6072;
 }
 label{
-    font-size: .8rem;
+    font-size: 1.8rem;
 
-    color: #5f2727;
+    color: #01062a;
 }
 
+.section{
+    padding: 0;
+    width: 100%    !important;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    color: #e8beb0;
+}
+
+.fullscreen-video-wrap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.fullscreen-video-wrap video{
+    min-width: 100%;
+    min-height: 100%;
+}
 
 .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
     color: #005eed !important;
    }
-
-/* label underline focus color */
-   .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+.input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #005eed !important;
     box-shadow: 0 1px 0 0 #005eed !important;
 }
 .container{
-    background-color: #e8beb0;
+    max-width: 960px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: auto;
+    /* background-color: #e8beb0;
     color: #444;
     cursor: pointer;
     padding: 18px;
-    width: 920px;
+    width: 920px; */
     text-align: center;
     border: line;
     outline: none;
     transition: 0.4s;
     font-size: larger;
-    
 }
 
-/* #menu-container{
-    margin-top: 50px;
-} */
+.stuff-container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.stuff-container{
+    z-index: 10;
+}
+
+
 
 @import url('https://fonts.googleapis.com/css?family=Kanit:900');
 
@@ -81,22 +127,29 @@ $LIGHTING_FLAT: 3;
   text-shadow: $value;
 }
 
-$primarycolour: rgb(230,190,190);
 
 body {
   background: $primarycolour;
 }
 
-h1 {
-  color: #753f24;
+.container-content h1 {
+  color: #8695ae;
   font-family: "Kanit";
-  font-size: 100px;
+  font-size: 200px;
   line-height:1em;
-  margin-top: 80px;
+  margin-top: 150px;
   /* position: absolute; */
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
   text-shadow: 2px 2px 4px #000;
+
+}
+
+.menu-container{
+    /* position: absolute; */
+    padding-left: 40%;
+    width: 920px;
+    text-align: center;
 }

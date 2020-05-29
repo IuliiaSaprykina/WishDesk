@@ -3,63 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>   
     <title>Wish Desk</title>
     <link rel="stylesheet" href="index.css">
-    
-    
+
 </head>
 <body>
-    <div class="container">
-        <!-- <iframe src="https://giphy.com/embed/xTk9ZYl3z6MYq6XmXm" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
-        <!-- <iframe src="https://giphy.com/embed/Wa0TGmtDvwW3e" width="480" height="290" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
-        <iframe src="https://giphy.com/embed/3o6nUXWyYg2Wfc9DKE" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-    <h1>Wish Desk</h1>
-    
-    <br>    
-    <div id="menu-container">
-        <button class="add-new-user">Add a New User</button>
-            <form id="new-user-form">
-                <header>Create a New User</header>
-                <input name="name"/>
-                <label>Name</label>
-                <input name="username"/>
-                <label>Username</label>
-                <input type="password" name="password"/>
-                <label>Password</label>
-                <br>
-                <input type="submit" value="Create a new user"/>
-            </form>
-            <p class="user-error"></p>
+    <header class="section">
+        <div class="fullscreen-video-wrap">
+            <video autoplay loop muted>
+                <source src="video.mp4" type="video/mp4"/>
+            </video>
         </div>
-        <p id="new-user-added"></p>
-        <button id="log-in">LogIn</button>
-        <div id="log-in-menu">
-            <p class="is-logged-in"></p>
-            <form id="log-in-form" action="showPage.html" method="get">
-                <header>Log In to Your Account</header>
-                <input name="username" id="username"/>
-                <input type="hidden" name="user_id"/>
-                <label>Username</label>
-                <input type="password" name="password"/>
-                <label>Password</label>
+    </header>
+    <div class="stuff-container">
+        <div class="container-content">
+            <h1>Wish Desk</h1>
+            <br>    
+            <div class="menu-container">
+                <button class="add-new-user">Add a New User</button>
+                <form id="new-user-form">
+                    <header>Create a New User</header>
+                    <input name="name"/>
+                    <label>Name</label>
+                    <input name="username"/>
+                    <label>Username</label>
+                    <input type="password" name="password"/>
+                    <label>Password</label>
+                    <br>
+                    <input type="submit" value="Create a new user"/>
+                </form>
+                <p class="user-error"></p>
+            <p id="new-user-added"></p>
+            <button id="log-in">LogIn</button>
+            <div id="log-in-menu">
+                <p class="is-logged-in"></p>
+                <form id="log-in-form" action="showPage.html" method="get">
+                    <header>Log In to Your Account</header>
+                    <input name="username" id="username"/>
+                    <input type="hidden" name="user_id"/>
+                    <label>Username</label>
+                    <input type="password" name="password"/>
+                    <label>Password</label>
+                    <br>
+                    <input type="submit" value="Login"/>
+                </form>
+                <p class="login-error"></p>
+                
                 <br>
-                <input type="submit" value="Login"/>
-             </form>
-             <p class="login-error"></p>
-             
-             <br>
-             <button id="logout">Log Out</button>
-             <button id="go-to-your-page">Go To Your Page</button>
-            <!-- <a href="/showPage.html">Go to your Wish Desk Page</a> -->
-            <p class="login-error"></p>
+                <button id="logout">Log Out</button>
+                <button id="go-to-your-page">Go To Your Page</button>
+                <!-- <a href="/showPage.html">Go to your Wish Desk Page</a> -->
+                <p class="login-error"></p>
+            </div>
+            </div>
         </div>
     </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

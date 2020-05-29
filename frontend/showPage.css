@@ -1,36 +1,59 @@
-body {
-    background-color: #e8beb0;
+html {
+    background-image: url("silhouette-photography-of-rocky-mountains-under-starry-sky-2565420\ \(1\).jpg");
+    background-repeat: no-repeat;
+    background-color: black;
+    width: 100%;
+    height: auto;
+  }
+
+body{
+    background-color: #fff0;
 }
 
 h1 {
     /* position: absolute; */
     /* margin-left: 40%; */
-    padding-left: 25%;
+    padding-left: 30%;
     text-align: -50%;
     margin-top: 50px;
-    color: #a57056;
+    color: #76b5c7;
     font-family: "Kanit";
     font-size: 60px;
     line-height:1em;
     transform: translateY(-50%);
-    width: 100%; 
-    text-shadow: 2px 2px 4px #000;
-    
+    width: 100%;
+     text-shadow: 2px 2px 4px #000;
+
+}
+#My-Ideal-Home{
+    margin: 10px;
+}
+
+#My-Ideal-Family{
+    margin: 10px;
+}
+
+#Travel{
+    margin: 10px;
+}
+
+#Health{
+    margin: 10px;
+}
+
+#Gadget{
+    margin: 10px;
 }
 
 h2{
-    color: #a57056;
+    font-size: 50px;
+    margin-top: 30px;
+    color: #76b5c7;
     transform: translateY(-50%);
-    width: 100%; 
-    text-shadow: 2px 2px 4px #000; 
+    width: 100%;
+    text-shadow: 2px 2px 4px #000;
 }
 
-
-#top-buttons{
-    /* position: absolute; */
-    /* margin-top: 150px; */
-    
-}
 
 .wishes-container{
     /* position: absolute; */
@@ -38,20 +61,13 @@ h2{
     text-align: center;
 }
  
-.wish-secton{ 
-    background-color: rgba(255, 255, 255, 0.6);
-    position: absolute;
-    margin-left: 350px;
-}
 
 #add{
     margin: 30px;
 }
 
 #header-image {
+    padding-right: 10%;
     margin-top: 50px;
+    color: #76b5c7;
 }
-
-#wish-desk{
-    /* padding-top: 300px; */
-} 
