@@ -1,2 +1,57 @@
+body {
+    background-color: #e8beb0;
+}
 
+h1 {
+    /* position: absolute; */
+    /* margin-left: 40%; */
+    padding-left: 25%;
+    text-align: -50%;
+    margin-top: 50px;
+    color: #a57056;
+    font-family: "Kanit";
+    font-size: 60px;
+    line-height:1em;
+    transform: translateY(-50%);
+    width: 100%; 
+    text-shadow: 2px 2px 4px #000;
+    
+}
+
+h2{
+    color: #a57056;
+    transform: translateY(-50%);
+    width: 100%; 
+    text-shadow: 2px 2px 4px #000; 
+}
+
+
+#top-buttons{
+    /* position: absolute; */
+    /* margin-top: 150px; */
+    
+}
+
+.wishes-container{
+    /* position: absolute; */
+    /* padding-left: 25%; */
+    text-align: center;
+}
  
+.wish-secton{ 
+    background-color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    margin-left: 350px;
+}
+
+#add{
+    margin: 30px;
+}
+
+#header-image {
+    margin-top: 50px;
+}
+
+#wish-desk{
+    /* padding-top: 300px; */
+} 

@@ -11,7 +11,7 @@ Wish.destroy_all;
 wish1 = Wish.create(
     wish_type: "My Ideal Home",
     description: "Sweet Home in Forest",
-    image_url: "https://img1.goodfon.com/original/2880x1800/d/2e/nature-house-home-river-water.jpg?d=1"
+    image_url: "https://i.pinimg.com/originals/80/03/d9/8003d9d41878d03d94dd41949f33f6f7.jpg"
 )
 wish2 = Wish.create(
     wish_type: "My Ideal Home",
@@ -40,7 +40,7 @@ wish5 = Wish.create(
 wish6 = Wish.create(
     wish_type: "Travel",
     description: "Paris",
-    image_url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80"
+    image_url: "https://wallpapercave.com/wp/uIW2KF5.jpg"
 )
 
 wish7 = Wish.create(
@@ -52,7 +52,7 @@ wish7 = Wish.create(
 wish8 = Wish.create(
     wish_type: "Travel",
     description: "Italy",
-    image_url: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1833&q=80"
+    image_url: "https://wallpapercave.com/wp/wp4710357.jpg"
 )
 
 wish9 = Wish.create(
@@ -64,7 +64,7 @@ wish9 = Wish.create(
 wish10 = Wish.create(
     wish_type: "Travel",
     description: "Moscow",
-    image_url: "https://www.vivastour.com/storage/tour-images/29/ujkxNGPnZ3Ih6dMueIBE3KAYBdjPZqjdVN8dUj9F.jpeg"
+    image_url: "https://media.fleetwaytravel.com/0792749b727e175ff7678db2e0debccb_highRes_x2.jpg"
 )
 
 wish11 = Wish.create(
@@ -88,7 +88,7 @@ wish13 = Wish.create(
 wish14 = Wish.create(
     wish_type: "Health",
     description: "I have a good health",
-    image_url: "https://images.squarespace-cdn.com/content/v1/52deadc3e4b02ffcb6bcc82b/1422902488034-O2K6MOHPYTXVCBV1280W/ke17ZwdGBToddI8pDm48kOfyDvEHHXPScbb76BOQ0GtZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpw_NRLlI4YHUKeAre0H6hynZ5GYDdL-qHtx7rCb_L1MstOwIbU9G8H62C_qNhXwhxo/Road+Signs+to+Healthy+Sign.png?format=1000w"
+    image_url: "https://wallpapercave.com/wp/wp4362166.jpg"
 )
 
 wish15 = Wish.create(
