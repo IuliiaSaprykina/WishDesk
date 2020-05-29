@@ -1,7 +1,7 @@
 const queryParams = new URLSearchParams(window.location.search)
 const topSecretStuff = document.getElementById('top-secret-stuff');
 const wishesContainer = document.querySelector('.wishes-container');
-const wishSection = document.querySelector('.wish-section');
+const wishSection = document.querySelector('.item-content');
 const typeButtonSection = document.querySelector('.type-button');
 const yourWishDesk = document.querySelector('.your-wish-desk');
 const wishDesk = document.getElementById('wish-desk')
@@ -78,6 +78,7 @@ function displayWishes(wishArr){
             const wishTypeButton = document.createElement('button');
 
             wishTypeButton.textContent = el;
+            wishTypeButton.id = el.split(" ").join("-")
 
             wishTypeButton.addEventListener('click', displayWishesImage)
 
@@ -87,6 +88,55 @@ function displayWishes(wishArr){
 
 function displayWishesImage(event) {
     event.preventDefault();
+    // fetch(wishesUrl)
+    // .then(parseJSON)
+    // .then(wishes => wishes["wishes"].forEach(wish => {
+    //     if (event.target.textContent == wish.wish_type) {
+    //             const p = document.createElement('p');
+    //             const img = document.createElement('img');
+    //             const addButton = document.createElement('button');
+
+    //             img.remove();
+    //             p.remove();
+    //             addButton.remove();
+                
+    //             p.textContent = wish.description;
+    //             p.id = "header-image"
+    //             img.src = wish.image_url;
+    //             img.width = "400";
+    //             img.height = "300";
+    //             addButton.textContent = "Add Wish";
+    //             addButton.id = "add"
+            
+    //             addButton.addEventListener('click', () =>{
+    //                 event.preventDefault();
+
+    //                 img.src = wish.image_url;
+    //                 img.width = "400";
+    //                 img.height = "300";
+
+    //                 const newUserWish = {
+    //                      user_id: userId,
+    //                     wish_id: wish.id
+    //                 }
+                    
+    //                 fetch(userWishesUrl, {
+    //                     method: "POST",
+    //                     headers: {
+    //                         'content-type':'application/json',
+    //                         Authorization: `bearer ${localStorage.getItem("token")}`
+    //                     },
+    //                     body: JSON.stringify(newUserWish)
+    //                 })
+    //                     .then(parseJSON)
+    //                     .then(console.log)
+    //             })
+
+    //         wishSection.append(p, img, addButton)
+    //     }
+    // }))
+
+    
     
     if (event.target.textContent == "My Ideal Home"){
         // familySection.remove();
@@ -138,7 +188,7 @@ function displayWishesImage(event) {
     } else if (event.target.textContent == "My Ideal Family"){
         homeSection.remove();
         familyArr.forEach(el => {
-            wishSection.style.display = 'block'
+           
             const p = document.createElement('p');
             const img = document.createElement('img');
             const addButton = document.createElement('button');
@@ -149,6 +199,8 @@ function displayWishesImage(event) {
             img.width = "400";
             img.height = "300";
             addButton.textContent = "Add Wish";
+            addButton.id = "add"
+
 
             addButton.addEventListener('click', () =>{
                 event.preventDefault();
@@ -187,9 +239,11 @@ function displayWishesImage(event) {
             p.textContent = country.description;
             p.id = "header-image";
             img.src =country.image_url;
-            img.width = "380";
-            img.height = "300";
+            img.width = "500";
+            img.height = "400";
             addButton.textContent = "Add Wish";
+            addButton.id = "add"
+
 
             addButton.addEventListener('click', () =>{
                 event.preventDefault();
@@ -228,9 +282,10 @@ function displayWishesImage(event) {
             p.textContent = el.description;
             p.id = "header-image";
             img.src =el.image_url;
-            img.width = "400";
-            img.height = "300";
+            img.width = "500";
+            img.height = "400";
             addButton.textContent = "Add Wish";
+            addButton.id = "add"
 
             addButton.addEventListener('click', () =>{
                 event.preventDefault();
@@ -272,6 +327,8 @@ function displayWishesImage(event) {
             img.width = "400";
             img.height = "400";
             addButton.textContent = "Add Wish";
+            addButton.id = "add"
+
 
             addButton.addEventListener('click', () =>{
                 event.preventDefault();
