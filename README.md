@@ -15,7 +15,7 @@ Visualize your own dreams and wishes.
 I believe that our thoughts have real powers. And if we want something and dream about it every day, it really will come true in your future. So on this site there is a really great tool that allows you to visualize your dreams.
 
 ## Intro Video
-[Wish Desk on YouTube]()
+[Wish Desk on YouTube](https://youtu.be/-FkukSCAkQk)
 
 ## Technologies
 * ActiveRecord - version 6.0.2.2
