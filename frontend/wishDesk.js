@@ -48,29 +48,18 @@ function parseJSON(response){
 }
 
 function screenshot(){
-
-    html2canvas(document.images[1], {
-        onrendered: function(canvas){
-            
-            let ctx = canvas.getContext("2d");
-            
-            ctx.globalAlpha = 0.05;
-            ctx.fillStyle = "#fff";
-
-            // ctx.fillRect(0, 0, canvas.width, canvas.height);
-            // // ctx.fillStyle = "blue";
-            // // ctx.fillRect(50, 50, 75, 50);
-            // // ctx.fillStyle = "green";
-            // // ctx.fillRect(80, 80, 75, 50);
-              
-            let img = canvas.toDataURL('image/jpeg', 1.0);
-            let doc = new jsPDF();
-                // console.log(doc.addImage(img, 'JPEG', 20, 20))
-            doc.addImage(img, 'JPEG', 0, 0);
-            doc.save('Wishes.pdf')
-        },
+    let doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.setTextColor(120, 40, 170);
+    doc.text(50, 50, "should be an image here");
+    html2canvas(document.querySelector("#wishes-images"), {
+        useCORS: true,
+        onrendered: function(canvas) {
+            let imgData = canvas.toDataURL('image/jpeg');
+            doc.addImage(imgData, 'JPEG', 0, 0, 300, 300);
+            doc.save('Wishes.pdf');
+        }
     })
-
 }
 
 
