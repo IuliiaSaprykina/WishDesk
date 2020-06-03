@@ -139,10 +139,6 @@ function displayWishesImage(event) {
     
     
     if (event.target.textContent == "My Ideal Home"){
-        // familySection.remove();
-        // travelSection.remove();
-        // healthSection.remove();
-        // gadgetSection.remove();
         homeArr.forEach(home => {
             console.log(home)
             const p = document.createElement('p');
@@ -160,8 +156,7 @@ function displayWishesImage(event) {
             
             addButton.addEventListener('click', () =>{
                 event.preventDefault();
-                // const img = document.createElement('img');
-
+        
                 img.src = home.image_url;
                 img.width = "400";
                 img.height = "300";
@@ -362,7 +357,6 @@ function displayWishesImage(event) {
 }
 
 function yourWishDeskDisplay(){
-    // healthSection.remove();
     gadgetSection.remove();
     fetch(userWishesUrl , {
         headers: {

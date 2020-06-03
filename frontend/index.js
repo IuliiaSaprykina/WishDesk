@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     const $userError = document.querySelector('.user-error');
-    const $loginError = document.querySelector('.login-error')
+    const $loginError = document.querySelector('.login-error');
     const newUserForm = document.getElementById('new-user-form');
     const addUserButton = document.querySelector('.add-new-user');
     const newUserAdded = document.getElementById('new-user-added');
@@ -104,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
             username: newUserUserName,
             password: newUserPassword
         }
-        // localStorage.setItem('username', newUserUserName);
 
         fetch(loginUrl, {
         method: 'POST',
