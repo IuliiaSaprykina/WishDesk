@@ -53,7 +53,7 @@ function screenshot(){
         onrendered: function(canvas){
             
             let ctx = canvas.getContext("2d");
-            // ctx.fillRect(40,60,20,20);
+            
             ctx.globalAlpha = 0.05;
             ctx.fillStyle = "#fff";
 
