@@ -149,8 +149,8 @@ function displayWishesImage(event) {
             p.textContent = home.description;
             p.id = "header-image";
             img.src = home.image_url;
-            img.width = "400";
-            img.height = "300";
+            img.width = "500";
+            img.height = "450";
             addButton.textContent = "Add Wish";
             addButton.id = "add"
             
@@ -158,8 +158,8 @@ function displayWishesImage(event) {
                 event.preventDefault();
         
                 img.src = home.image_url;
-                img.width = "400";
-                img.height = "300";
+                img.width = "500";
+                img.height = "450"
 
                 const newUserWish = {
                     user_id: userId,
@@ -191,8 +191,8 @@ function displayWishesImage(event) {
             p.textContent = el.description;
             p.id = "header-image";
             img.src =el.image_url;
-            img.width = "400";
-            img.height = "300";
+            img.width = "500";
+            img.height = "450"
             addButton.textContent = "Add Wish";
             addButton.id = "add"
 
@@ -202,8 +202,8 @@ function displayWishesImage(event) {
                 const img = document.createElement('img');
 
                 img.src = el.image_url;
-                img.width = "400";
-                img.height = "300";
+                img.width = "500";
+                img.height = "450"
 
                 const newUserWish = {
                     user_id: userId,
@@ -235,7 +235,7 @@ function displayWishesImage(event) {
             p.id = "header-image";
             img.src =country.image_url;
             img.width = "500";
-            img.height = "400";
+            img.height = "450"
             addButton.textContent = "Add Wish";
             addButton.id = "add"
 
@@ -245,8 +245,8 @@ function displayWishesImage(event) {
                 const img = document.createElement('img');
 
                 img.src = country.image_url;
-                img.width = "400";
-                img.height = "300";
+                img.width = "500";
+                img.height = "450"
 
                 const newUserWish = {
                     user_id: userId,
@@ -278,7 +278,7 @@ function displayWishesImage(event) {
             p.id = "header-image";
             img.src =el.image_url;
             img.width = "500";
-            img.height = "400";
+            img.height = "450"
             addButton.textContent = "Add Wish";
             addButton.id = "add"
 
@@ -287,8 +287,8 @@ function displayWishesImage(event) {
                 const img = document.createElement('img');
 
                 img.src = el.image_url;
-                img.width = "400";
-                img.height = "300";
+                img.width = "500";
+                img.height = "450"
 
                 const newUserWish = {
                     user_id: userId,
@@ -319,8 +319,8 @@ function displayWishesImage(event) {
             p.textContent = el.description;
             p.id = "header-image";
             img.src =el.image_url;
-            img.width = "400";
-            img.height = "400";
+            img.width = "500";
+            img.height = "450"
             addButton.textContent = "Add Wish";
             addButton.id = "add"
 
@@ -330,8 +330,8 @@ function displayWishesImage(event) {
                 const img = document.createElement('img');
 
                 img.src = el.image_url;
-                img.width = "400";
-                img.height = "300";
+                img.width = "500";
+                img.height = "450"
 
                 const newUserWish = {
                     user_id: userId,
