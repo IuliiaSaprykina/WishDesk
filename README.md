@@ -22,6 +22,7 @@ I believe that our thoughts have real powers. And if we want something and dream
 * Rails - version 6.0.2 
 * Ruby - version 2.6.1 and 2.6.5
 * SQLite3 - version 1.4
+* JavaScript
 
 ## Setup
 To run this project, install it locally by cloning the GitHub repository and typing:
